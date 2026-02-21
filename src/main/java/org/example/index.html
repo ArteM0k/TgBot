@@ -15,7 +15,7 @@
             <option value="*">=</option>
             <option value="/">/</option>
         </select><br><br>
-        <button id="calc">Result</button>
+        <button id="calc">Result</button><br><br>
         <label id="result"></label>
         <script>
             calc.addEventListener('click', getResult);
@@ -29,20 +29,20 @@
                 let res = 0;
                 switch (sign) {
                     case "+":{
-                        res = value1 + value2;
+                        res = parseInt(value1) + parseInt(value2);
                         break;
                     }
                     case "-":{
-                        res = value1 - value2;
+                        res = parseInt(value1) - parseInt(value2);
                         break;
                     }
                     case "*":{
-                        res = value1 * value2;
+                        res = parseInt(value1) * parseInt(value2);
                         break;
                     }
                     case "/":{
                         if (value2 !== 0)
-                            res = value1 / value2;
+                            res = parseInt(value1) / parseInt(value2);
                         else res = "Error";
                         break;
                     }
