@@ -7,7 +7,48 @@
         <script src="https://telegram.org/js/telegram-web-app.js"></script>
     </head>
     <body>
-        <h1>MiniApp</h1>
+        <input type="number" placeholder="A" id="a"><br>
+        <input type="number" placeholder="B" id="b"><br>
+        <select id="action">
+            <option value="+" selected>+</option>
+            <option value="-">-</option>
+            <option value="*">=</option>
+            <option value="/">/</option>
+        </select><br>
+        <button id="calc">Result</button>
+        <label id="result"></label>
+        <script>
+            calc.addEventListener('click', getResult());
+            function getResult() {
+                const value1 = a.value;
+                const value2 = b.value;
+                if (value1 === "" && value2 === "")
+                    return;
+                const sign = action.value;
+                let res = 0;
+                switch (sign) {
+                    case "+":{
+                        res = value1 + value2;
+                        break;
+                    }
+                    case "-":{
+                        res = value1 - value2;
+                        break;
+                    }
+                    case "*":{
+                        res = value1 * value2;
+                        break;
+                    }
+                    case "/":{
+                        if (value2 !== 0)
+                            res = value1 / value2;
+                        else res = "Error";
+                        break;
+                    }
+                }
+                result.textContent = res;
+            }
+        </script>
         <script>
             const tg = window.Telegram.WebApp;
             tg.ready();
